@@ -4,11 +4,9 @@ import { Metadata } from "next"
 import Image from "next/image"
 import { z } from "zod"
 
-import { columns } from "./components/columns"
-import { DataTable } from "./components/data-table"
-import { UserNav } from "./components/user-nav"
+import { columns } from "./_components/columns"
+import { DataTable } from "./_components/data-table"
 import { taskSchema } from "./data/schema"
-import { BreadcrumbCustom } from "@/components/breadcrumb-custom"
 
 export const metadata: Metadata = {
   title: "Tasks",

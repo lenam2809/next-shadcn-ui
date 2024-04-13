@@ -14,10 +14,10 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
-import { CalendarDateRangePicker } from "./components/date-range-picker";
-import { Overview } from "./components/overview"
-import { RecentSales } from "./components/recent-sales"
-import CardWrapper from "./components/cards";
+import { CalendarDateRangePicker } from "./_components/date-range-picker";
+import { Overview } from "./_components/overview"
+import { RecentSales } from "./_components/recent-sales"
+import CardWrapper from "./_components/cards";
 
 export const metadata: Metadata = {
   title: "Dashboard",

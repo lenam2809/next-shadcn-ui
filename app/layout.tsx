@@ -67,7 +67,7 @@ export default function RootLayout({
                 </div>
             </div>
             <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-4">
-            <BreadcrumbCustom />
+            {/* <BreadcrumbCustom /> */}
             </div>
             <div className="flex-grow md:overflow-y-auto">{children}</div>
         </div>
