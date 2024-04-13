@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Inter as FontSans } from "next/font/google";
+import "@/styles/globals.css";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/mode-toggle";
+import { MainNav } from "@/components/main-nav";
+import TeamSwitcher from "@/components/team-switcher";
+import { Search } from "@/components/search";
+import { UserNav } from "@/components/user-nav";
+import Image from "next/image"
+import { BreadcrumbCustom } from "@/components/breadcrumb-custom";
 
-const inter = Inter({ subsets: ["latin"] });
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +29,49 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn(
+        "min-h-screen bg-background font-sans antialiased",
+        fontSans.variable
+      )}> <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <div className="md:hidden">
+            <Image
+                src="/public/images/dashboard-light.png"
+                width={1280}
+                height={866}
+                alt="Dashboard"
+                className="block dark:hidden"
+            />
+            <Image
+                src="/public/images/dashboard-dark.png"
+                width={1280}
+                height={866}
+                alt="Dashboard"
+                className="hidden dark:block"
+            />
+        </div>
+        <div className="hidden flex-col md:flex">
+            <div className="border-b">
+                <div className="flex h-16 items-center px-4">
+                    <TeamSwitcher />
+                    <MainNav className="mx-6" />
+                    <div className="ml-auto flex items-center space-x-4">
+                        <ModeToggle />
+                        <Search />
+                        <UserNav />
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-4">
+            <BreadcrumbCustom />
+            </div>
+            <div className="flex-grow md:overflow-y-auto">{children}</div>
+        </div>
+        </ThemeProvider></body>
     </html>
   );
 }
