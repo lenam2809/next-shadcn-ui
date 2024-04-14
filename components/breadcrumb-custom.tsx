@@ -13,6 +13,7 @@ import { Fragment } from "react";
 export function BreadcrumbCustom() {
   const paths = usePathname();
   const pathNames = paths.split('/').filter(path => path);
+
   return (
     <Breadcrumb>
       <BreadcrumbList>
@@ -32,13 +33,12 @@ export function BreadcrumbCustom() {
                   <BreadcrumbItem>
                     {
                       !isLastPath ?
-                        <BreadcrumbLink asChild>
-                          <link href={href}>{linkName}</link>
+                        <BreadcrumbLink href={href} asChild>
+                          {linkName}
                         </BreadcrumbLink> :
                         <BreadcrumbPage>{linkName}</BreadcrumbPage>
                     }
                   </BreadcrumbItem>
-
                 </Fragment>
               )
             })
