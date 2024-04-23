@@ -17,25 +17,25 @@ import {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Product Category</CardTitle>
+          <CardTitle>Danh mục sản phẩm</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="grid gap-3">
-              <Label htmlFor="category">Category</Label>
+              <Label htmlFor="category">Loại</Label>
               <Select>
                 <SelectTrigger id="category" aria-label="Select category">
                   <SelectValue placeholder="Select category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="clothing">Clothing</SelectItem>
-                  <SelectItem value="electronics">Electronics</SelectItem>
-                  <SelectItem value="accessories">Accessories</SelectItem>
+                  <SelectItem value="clothing">Quần áo</SelectItem>
+                  <SelectItem value="electronics">Thiết bị điện tử</SelectItem>
+                  <SelectItem value="accessories">Phụ kiện</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="grid gap-3">
-              <Label htmlFor="subcategory">Subcategory (optional)</Label>
+              <Label htmlFor="subcategory">Danh mục phụ (Tuỳ chọn)</Label>
               <Select>
                 <SelectTrigger id="subcategory" aria-label="Select subcategory">
                   <SelectValue placeholder="Select subcategory" />

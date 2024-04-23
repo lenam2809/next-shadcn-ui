@@ -10,6 +10,7 @@ import { Search } from "@/components/search";
 import { UserNav } from "@/components/user-nav";
 import Image from "next/image"
 import { BreadcrumbCustom } from "@/components/breadcrumb-custom";
+import { Toaster } from "@/components/ui/toaster";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -66,11 +67,12 @@ export default function RootLayout({
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-4">
+            {/* <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-4">
             <BreadcrumbCustom />
-            </div>
+            </div> */}
             <div className="flex-grow md:overflow-y-auto">{children}</div>
         </div>
+        <Toaster />
         </ThemeProvider></body>
     </html>
   );

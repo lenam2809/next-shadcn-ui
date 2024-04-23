@@ -1,46 +1,66 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { ArrowRightIcon } from "@radix-ui/react-icons"
 
 import { cn } from "@/lib/utils"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 
-export function MainNav({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLElement>) {
+const examples = [
+  {
+    name: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    name: "Customers",
+    href: "/customer",
+  },
+  {
+    name: "Products",
+    href: "/product",
+  },
+  {
+    name: "Orders",
+    href: "/orders",
+  },
+  {
+    name: "Weathers",
+    href: "/weather",
+  },
+  {
+    name: "Setting",
+    href: "/setting",
+  },
+]
+
+interface ExamplesNavProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export function MainNav({ className, ...props }: ExamplesNavProps) {
+  const pathname = usePathname()
+
   return (
-    <nav
-      className={cn("flex items-center space-x-4 lg:space-x-6", className)}
-      {...props}
-    >
-      <Link
-        href="/dashboard"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        Overview
-      </Link>
-      <Link
-        href="/customer"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Customers
-      </Link>
-      <Link
-        href="/product"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Products
-      </Link>
-      <Link
-        href="/orders"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Orders
-      </Link>
-      <Link
-        href="/examples/dashboard"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Settings
-      </Link>
-    </nav>
+    <div className="relative">
+      <ScrollArea className="max-w-[600px] lg:max-w-none">
+        <div className={cn("flex items-center", className)} {...props}>
+          {examples.map((example, index) => (
+            <Link
+              href={example.href}
+              key={example.href}
+              className={cn(
+                "flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors hover:text-primary",
+                pathname?.startsWith(example.href) ||
+                  (index === 0 && pathname === "/")
+                  ? "bg-muted font-medium text-primary"
+                  : "text-muted-foreground"
+              )}
+            >
+              {example.name}
+            </Link>
+          ))}
+        </div>
+        <ScrollBar orientation="horizontal" className="invisible" />
+      </ScrollArea>
+    </div>
   )
 }

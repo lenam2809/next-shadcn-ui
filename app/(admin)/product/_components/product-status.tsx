@@ -17,20 +17,20 @@ import {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Product Status</CardTitle>
+          <CardTitle>Trạng thái sản phẩm</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid gap-6">
             <div className="grid gap-3">
-              <Label htmlFor="status">Status</Label>
+              <Label htmlFor="status">Trạng thái</Label>
               <Select>
                 <SelectTrigger id="status" aria-label="Select status">
                   <SelectValue placeholder="Select status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="draft">Draft</SelectItem>
-                  <SelectItem value="published">Active</SelectItem>
-                  <SelectItem value="archived">Archived</SelectItem>
+                  <SelectItem value="draft">Bản nháp</SelectItem>
+                  <SelectItem value="published">Hoạt động</SelectItem>
+                  <SelectItem value="archived">Lưu trữ</SelectItem>
                 </SelectContent>
               </Select>
             </div>

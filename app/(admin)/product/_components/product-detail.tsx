@@ -13,7 +13,7 @@ import {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Product Details</CardTitle>
+          <CardTitle>Chi tiết sản phẩm</CardTitle>
           <CardDescription>
             Lipsum dolor sit amet, consectetur adipiscing elit
           </CardDescription>
@@ -21,7 +21,7 @@ import {
         <CardContent>
           <div className="grid gap-6">
             <div className="grid gap-3">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">Tên</Label>
               <Input
                 id="name"
                 type="text"
@@ -30,7 +30,7 @@ import {
               />
             </div>
             <div className="grid gap-3">
-              <Label htmlFor="description">Description</Label>
+              <Label htmlFor="description">Miêu tả</Label>
               <Textarea
                 id="description"
                 defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc."

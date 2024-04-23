@@ -33,13 +33,13 @@ export default function CreateProductPage() {
                 Thêm mới sản phẩm
               </h1>
               <Badge variant="outline" className="ml-auto sm:ml-0">
-                In stock
+                Trong kho
               </Badge>
               <div className="hidden items-center gap-2 md:ml-auto md:flex">
                 <Button variant="outline" size="sm">
-                  Discard
+                  Loại bỏ
                 </Button>
-                <Button size="sm">Save Product</Button>
+                <Button size="sm">Lưu sản phẩm</Button>
               </div>
             </div>
             <div className="grid gap-4 md:grid-cols-[1fr_250px] lg:grid-cols-3 lg:gap-8">

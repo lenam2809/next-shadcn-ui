@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Avatar,
     AvatarFallback,
@@ -14,9 +16,30 @@ import {
     DropdownMenuShortcut,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
+import { AuthService } from "@/services";
 import Link from "next/link"
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
   
   export function UserNav() {
+    const { setLogout, getOauth } = AuthService();
+    const [userName, setUserName] = useState("");
+    const [userId, setUserId] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+    useEffect(() => {
+        var auth = getOauth();
+        if (auth) {
+            console.log("auth",auth);
+            setUserName(auth.fullName);
+            setUserEmail(auth.email);
+            setUserId(auth.idTaiKhoan);
+        }
+    }, []);
+    const router = useRouter();
+    const logOut = () => {
+      setLogout();
+      router.push("/dashboard");
+  };
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -30,9 +53,9 @@ import Link from "next/link"
         <DropdownMenuContent className="w-56" align="end" forceMount>
           <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
-              <p className="text-sm font-medium leading-none">shadcn</p>
+              <p className="text-sm font-medium leading-none">{userName}</p>
               <p className="text-xs leading-none text-muted-foreground">
-                m@example.com
+                {userEmail}
               </p>
             </div>
           </DropdownMenuLabel>
@@ -59,7 +82,7 @@ import Link from "next/link"
             </Link>
             <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={() => logOut()}>
             Log out
             <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
           </DropdownMenuItem>

@@ -11,7 +11,7 @@ export default function ProductArchive() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Archive Product</CardTitle>
+        <CardTitle>Lưu trữ sản phẩm</CardTitle>
         <CardDescription>
           Lipsum dolor sit amet, consectetur adipiscing elit.
         </CardDescription>
@@ -19,7 +19,7 @@ export default function ProductArchive() {
       <CardContent>
         <div></div>
         <Button size="sm" variant="secondary">
-          Archive Product
+          Lưu trữ
         </Button>
       </CardContent>
     </Card>
