@@ -29,7 +29,6 @@ import { useEffect, useState } from "react";
     useEffect(() => {
         var auth = getOauth();
         if (auth) {
-            console.log("auth",auth);
             setUserName(auth.fullName);
             setUserEmail(auth.email);
             setUserId(auth.idTaiKhoan);
@@ -37,8 +36,9 @@ import { useEffect, useState } from "react";
     }, []);
     const router = useRouter();
     const logOut = () => {
+      document.cookie = 'sessionToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       setLogout();
-      router.push("/dashboard");
+      router.push("/login");
   };
     return (
       <DropdownMenu>

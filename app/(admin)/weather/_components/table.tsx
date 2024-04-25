@@ -70,7 +70,7 @@ export default function WeatherTableComponent() {
                     <TableBody>
                         {
                             weathers?.map((weather) => (
-                                <TableRow>
+                                <TableRow key={weather.date}>
                                     <TableCell className="hidden sm:table-cell">
                                     {weather.date}
                                     </TableCell>

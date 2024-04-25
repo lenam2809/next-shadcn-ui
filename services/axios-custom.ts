@@ -13,8 +13,8 @@ api.interceptors.request.use(
     (config) => {
         const { getOauth } = AuthService();
         const oauth = getOauth() || {};
-        if (oauth.access_token) {
-            config.headers["Authorization"] = "Bearer " + oauth.access_token;
+        if (oauth) {
+            config.headers["Authorization"] = "Bearer " + oauth;
         }
         return config;
     },

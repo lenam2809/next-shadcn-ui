@@ -13,11 +13,14 @@ export async function POST(
           password
         });
         // Xử lý kết quả từ API (nếu cần) và gửi phản hồi cho máy khách
-        return NextResponse.json(response.data);
+        return NextResponse.json(response.data, {
+          status: 200,
+          headers: {
+            'Set-Cookie': `sessionToken=${response.data}; Path=/;`
+          }
+        });
       } catch (error) {
         // Xử lý lỗi và gửi phản hồi lỗi cho máy khách
         return new NextResponse('Error', { status: 400 });
       }
-  
-   
   }

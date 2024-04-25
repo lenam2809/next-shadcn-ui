@@ -10,6 +10,8 @@ import Link from "next/link"
 import { useRouter } from "next/navigation";
 import { AuthService } from "@/services";
 import { useToast } from "@/components/ui/use-toast";
+import axios from "axios";
+import { log } from "console";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
@@ -33,7 +35,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    if (await login(username, password)) {
+    var result = await login(username, password);
+    if (result) {
       toast({
         description: "Đăng nhập thành công!",
       })
